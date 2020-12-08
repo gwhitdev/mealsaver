@@ -8,6 +8,7 @@ import HomePage from './views/Homepage.view';
 import Ingredients from './views/Ingredients.view';
 import UpdateIngredientForm from './components/UpdateIngredientForm/UpdateIngredientForm.component';
 import Nav from './components/Nav/Nav.component';
+import Profile from './views/Profile.view';
 
 import { Dimmer, Grid, Loader } from 'semantic-ui-react';
 
@@ -30,6 +31,7 @@ function App() {
     <Switch>
       <Route exact path='/' component={HomePage} />
       <ProtectedRoute path='/ingredients' component={Ingredients} />
+      <ProtectedRoute path="/profile" component={Profile} />
       <ProtectedRoute Route path="/updateIngredient/:id" component={UpdateIngredientForm} />
       </Switch>
       </Grid.Column>

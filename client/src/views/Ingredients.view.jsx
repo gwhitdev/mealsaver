@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { GET_INGREDIENTS, DELETE_INGREDIENT } from '../redux/ingredients/ingredientsActions';
@@ -12,21 +12,14 @@ import RegisterIngredientModalClicker from '../components/RegisterIngredientModa
 const Ingredients = ({ingredients, GET_INGREDIENTS }) => {
 
     const { user } = useAuth0();
-    const [open, setOpen] = useState(false)
-    const [loading, setLoading] = useState(false);
 
-    console.log('ingredients:', ingredients);
-    
     useEffect(() => {
-        async function getData() {
-            await setLoading(true);
-            await GET_INGREDIENTS(user.sub)
-            await setLoading(false);
-        }
-        getData();
-    },[user.sub, GET_INGREDIENTS, setOpen])
 
-    
+            if(ingredients.length === 0) {
+                GET_INGREDIENTS(user.sub)
+            }
+
+    },[user.sub, ingredients, GET_INGREDIENTS])
 
     return (
         <>

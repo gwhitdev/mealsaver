@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Grid, Header } from 'semantic-ui-react';
 
 import Ingredient from '../Ingredient/Ingredient.component';
-
+import RegisterIngredientModalClicker from '../RegisterIngredientModalClicker/RegisterIngredientModalClicker.component';
 
 
 const IngredientsStore = ({ ingredients }) => {
@@ -11,6 +11,7 @@ const IngredientsStore = ({ ingredients }) => {
     const [cupboard, setCupboard] = useState({});
     const [pantry, setPantry] = useState({});
     const [other, setOther] = useState({});
+    
 
     const storeIngredients = (ingredientsToStore) => {
         const fridgeArr = [];
@@ -40,10 +41,11 @@ const IngredientsStore = ({ ingredients }) => {
         },[ingredients,])
         
 
+        
     return (
         <>
         <Container>
-        <Grid columns={4} stackable>
+        <Grid columns={2} stackable>
             <Grid.Column >
                 <Header textAlign="center">In the fridge... </Header>
                     {
@@ -51,7 +53,7 @@ const IngredientsStore = ({ ingredients }) => {
                         
                             <Ingredient ingredientId={item._id} key={item._id} ingredient={item} />
                             
-                        ) : <div style={{textAlign: 'center'}}>None registered</div>
+                        ) : <div style={{textAlign: 'center'}}><RegisterIngredientModalClicker /></div>
                     }
             </Grid.Column>
 
@@ -60,7 +62,7 @@ const IngredientsStore = ({ ingredients }) => {
                 {
                     cupboard.ingredients && cupboard.ingredients.length  > 0  ? cupboard.ingredients.map(item => 
                         <Ingredient ingredientId={item._id} key={item._id} ingredient={item}  />
-                    ) : <div style={{textAlign: 'center'}}>None registered</div>
+                    ) : <div style={{textAlign: 'center'}}><RegisterIngredientModalClicker /></div>
                 }
             </Grid.Column>
             <Grid.Column>
@@ -68,7 +70,7 @@ const IngredientsStore = ({ ingredients }) => {
                 {
                     pantry.ingredients && pantry.ingredients.length > 0  ? pantry.ingredients.map(item =>
                         <Ingredient ingredientId={item._id} key={item._id} ingredient={item} />
-                    ) : <div style={{textAlign: 'center'}}>None registered</div>
+                    ) : <div style={{textAlign: 'center'}}><RegisterIngredientModalClicker /></div>
                 }
             </Grid.Column>
             <Grid.Column>
@@ -76,7 +78,7 @@ const IngredientsStore = ({ ingredients }) => {
                 {
                     other.ingredients && other.ingredients.length > 0  ? other.ingredients.map(item =>
                         <Ingredient ingredientId={item._id} key={item._id}ingredient={item} />
-                    ) : <div style={{textAlign: 'center'}}>None registered</div>
+                    ) : <div style={{textAlign: 'center'}}><RegisterIngredientModalClicker /></div>
                 }
             </Grid.Column>
         </Grid>

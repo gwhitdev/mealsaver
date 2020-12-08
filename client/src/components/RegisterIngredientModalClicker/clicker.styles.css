@@ -1,0 +1,8 @@
+.register-clicker {
+    font-weight: bold;
+}
+
+.register-clicker:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

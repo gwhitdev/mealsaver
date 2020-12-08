@@ -23,7 +23,7 @@ const Ingredient = ({ ingredient, DELETE_INGREDIENT }) => {
                     open={open}
                     trigger={<Button size="mini" animated basic color="pink"> 
                     <Button.Content visible>
-                        <Icon name="arrow alternative circle up" />
+                        <Icon name="arrow alternate circle up" />
                     </Button.Content>
                     <Button.Content hidden>
                         Update

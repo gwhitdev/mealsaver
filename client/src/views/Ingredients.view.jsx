@@ -7,9 +7,7 @@ import { GET_INGREDIENTS, DELETE_INGREDIENT } from '../redux/ingredients/ingredi
 import { Grid, Container } from 'semantic-ui-react';
 
 import IngredientsStore from '../components/IngredientsStore/IngredientsStore.component';
-import CreateIngredientForm from '../components/CreateIngredientForm/CreateIngredientForm.componet';
-import Ingredient from '../components/Ingredient/Ingredient.component';
-import UpdateIngredientForm from '../components/UpdateIngredientForm/UpdateIngredientForm.component';
+import RegisterIngredientModalClicker from '../components/RegisterIngredientModalClicker/RegisterIngredientModalClicker.component';
 
 const Ingredients = ({ingredients, GET_INGREDIENTS }) => {
 
@@ -32,12 +30,11 @@ const Ingredients = ({ingredients, GET_INGREDIENTS }) => {
 
     return (
         <>
-        Ingredients
 
-        <Grid columns={1} centered>
+        <Grid columns={2} centered>
             <Grid.Column>
-                <Container style={{marginTop: '25px'}} >
-                { ingredients && ingredients.length > 0 ? <IngredientsStore centered ingredients={ingredients} /> : 'No ingredients registered.'}
+                <Container style={{marginTop: '25px'}} textAlign="center" >
+                { ingredients && ingredients.length > 0 ? <IngredientsStore centered ingredients={ingredients} /> : <><p>You haven't any ingredients registered at the moment...</p> <div><RegisterIngredientModalClicker buttonSize="massive"/></div> </>}
                 </Container>
             </Grid.Column>
             
